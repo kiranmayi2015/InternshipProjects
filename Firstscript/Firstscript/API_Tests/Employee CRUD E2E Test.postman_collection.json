@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "8fe4c1fd-1012-4a61-9aca-15ff26d4c6f3",
+		"name": "Employee CRUD E2E Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24054824"
+	},
+	"item": [
+		{
+			"name": "Delete an employee record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code check\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check key value pairs in the response\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    //name salary age check\r",
+							"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+							"    pm.expect(jsonData.data).to.eql(pm.environment.get(\"employeeID\").toString());\r",
+							"    pm.expect(jsonData.message).to.eql(\"Successfully! Record has been deleted\");\r",
+							"\r",
+							"//set the variable\r",
+							"//pm.environment.set(\"employeeID\", jsonData.data.id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"sunny\",\r\n    \"salary\": \"12345\",\r\n    \"age\": \"28\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/delete/{{employeeID}}",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"{{employeeID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an employee record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code check\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check key value pairs in the response\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    //name salary age check\r",
+							"    pm.expect(jsonData.data.name).to.eql(\"sunny\");\r",
+							"    pm.expect(jsonData.data.salary).to.eql(\"12345\");\r",
+							"    pm.expect(jsonData.data.age).to.eql(\"28\");\r",
+							"\r",
+							"//set the variable\r",
+							"//pm.environment.set(\"employeeID\", jsonData.data.id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"sunny\",\r\n    \"salary\": \"12345\",\r\n    \"age\": \"28\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/update/{{employeeID}}",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update",
+						"{{employeeID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new record in the database",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code check\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check key value pairs in the response\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    //name salary age check\r",
+							"    pm.expect(jsonData.data.name).to.eql(\"sunny\");\r",
+							"    pm.expect(jsonData.data.salary).to.eql(\"12345\");\r",
+							"    pm.expect(jsonData.data.age).to.eql(\"26\");\r",
+							"\r",
+							"//set the variable\r",
+							"pm.environment.set(\"employeeID\", jsonData.data.id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"sunny\",\r\n    \"salary\": \"12345\",\r\n    \"age\": \"26\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
