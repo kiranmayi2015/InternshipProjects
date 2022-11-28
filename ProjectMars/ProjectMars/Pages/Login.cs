@@ -20,7 +20,8 @@ namespace ProjectMars.Pages
 
             driver.Navigate().GoToUrl("http://localhost:5000/Home");
             driver.Manage().Window.Maximize();
-            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"home\"]/div/div/div[1]/div/a", 5);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+
 
             //identify signin button and click on it
 
