@@ -11,7 +11,6 @@ using CompetitionTask1.Tests;
 using ExcelDataReader;
 using AventStack.ExtentReports;
 using CompetitionTask1.Input;
-using OpenQA.Selenium.DevTools.V105.DOM;
 using System.Security.Policy;
 
 namespace CompetitionTask1.Utilities
@@ -43,12 +42,12 @@ namespace CompetitionTask1.Utilities
             if (LoginCredentials.String1 == "kiranmayi.bodireddy@gmail.com")
             {
                   LoginPage loginpageObj = new LoginPage();
-                  loginpageObj.LoginSteps(driver);
+                  loginpageObj.LoginSteps();
             }
             else
             {
                   SignUpPage signuppageObj = new SignUpPage();
-                  signuppageObj.SignUpSteps(driver);
+                  signuppageObj.SignUpSteps();
             }
 
              string fileName = @"C:\Testing\sampletest\CompetitionTask1\CompetitionTask1\ExternalFiles\ShareSkills_TestData.xlsx";

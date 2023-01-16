@@ -11,6 +11,7 @@ using CompetitionTask1.Screenshots;
 using SeleniumExtras.PageObjects;
 using ExcelDataReader;
 using OpenQA.Selenium;
+using NuGet.Frameworks;
 
 namespace CompetitionTask1.Tests
 {
@@ -29,17 +30,26 @@ namespace CompetitionTask1.Tests
 
         public void CreateShareSkillTest()
         {
-           
-            
+            try
+            {
+
+
                 test = extentreportObj.CreateTest("CreateSkills", "Testing Create Skills");
-                profilepageObj.GoToShareSkillPage(driver);
-                shareskillpageObj.CreateShareSkill(driver);
+                profilepageObj.GoToShareSkillPage();
+                shareskillpageObj.CreateShareSkill();
                 PageFactory.InitElements(driver, this);
                 CommonDriver.UseWait();
                 TakeScreenShot.SSMethod(driver);
                 test.Log(Status.Info, "Skills created successfully");
                 test.Log(Status.Pass, "Test passed");
-           
+            }
+            catch(Exception ex)
+            {
+                
+                test.Log(Status.Fail, "Test Failed");
+                Assert.Fail("Create Skills Test Failed", ex.Message);
+                throw;
+            }
         }
 
 
@@ -50,39 +60,49 @@ namespace CompetitionTask1.Tests
             try
             {
 
-                test = extentreportObj.CreateTest("ViewSkills", "Testing Created Skills");
-                profilepageObj.GoToManageListingsPage(driver);
+                test = extentreportObj.CreateTest("ViewSkills", "Testing Creted Skills");
+                profilepageObj.GoToManageListingsPage();
                 PageFactory.InitElements(driver, this);
-                managelistingspageObj.ViewListings(driver);
+                managelistingspageObj.ViewListings();
                 Thread.Sleep(2000);
                 TakeScreenShot.SSMethod(driver);
                 test.Log(Status.Info, "View Shareskills page opened successfully");
                 test.Log(Status.Pass, "Test passed");
             }
-            catch
+            catch(Exception ex)
             {
+                
                 test.Log(Status.Fail, "Test Failed");
+                Assert.Fail("View skills test failed", ex.Message);
+                throw;
             }
         }
 
         [Test, Order(3)]
         public void EditShareSkillTest()
         {
-           
-               
-                
-                test = extentreportObj.CreateTest("EditSkills", "Testing Created Skills");
-                profilepageObj.GoToManageListingsPage(driver);
-                managelistingspageObj.GoToShareSkillPage(driver);
-                shareskillpageObj.EditShareSkill(driver);
-                CommonDriver.UseWait();                           
-                TakeScreenShot.SSMethod(driver);
-                test.Log(Status.Info, "Skills edited successfully");
-                test.Log(Status.Pass, "Test passed");
-                
-             
-                
-            }
+        try
+        {
+
+             test = extentreportObj.CreateTest("EditSkills", "Testing Created Skills");
+            profilepageObj.GoToManageListingsPage();
+            managelistingspageObj.GoToShareSkillPage();
+            shareskillpageObj.EditShareSkill();
+            CommonDriver.UseWait();
+            TakeScreenShot.SSMethod(driver);
+            test.Log(Status.Info, "Skills edited successfully");
+            test.Log(Status.Pass, "Test passed");
+        }
+        catch(Exception ex)
+        {
+            
+            test.Log(Status.Fail, "Test Failed");
+            Assert.Fail("Edit Skills Test failed", ex.Message);
+            throw;
+        }
+
+
+    }
            
 
         [Test, Order(4)]
@@ -92,8 +112,9 @@ namespace CompetitionTask1.Tests
             try
             {
                 test = extentreportObj.CreateTest("DeleteSkills", "Deleting skills created");
-                profilepageObj.GoToManageListingsPage(driver);
-                managelistingspageObj.DeleteShareSkill(driver);
+                profilepageObj.GoToManageListingsPage();
+                managelistingspageObj.DeleteShareSkill();
+                Thread.Sleep(2000);
                 CommonDriver.UseWait();
                 TakeScreenShot.SSMethod(driver);
                 test.Log(Status.Info, "Skill listing deleted successfully");
@@ -101,7 +122,7 @@ namespace CompetitionTask1.Tests
             }
             catch(Exception ex)
             {
-                TakeScreenShot.SSMethod(driver);
+                
                 test.Log(Status.Fail, "Test Failed");
                 Assert.Fail("Delete Skills Test failed", ex.Message);
                 throw;

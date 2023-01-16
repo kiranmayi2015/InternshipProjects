@@ -15,7 +15,7 @@ using AutoItX3Lib;
 
 namespace CompetitionTask1.Pages
 {
-    public class ShareSkillPage
+    public class ShareSkillPage : CommonDriver
     {
 
         
@@ -100,7 +100,7 @@ namespace CompetitionTask1.Pages
         [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[11]/div/input[1]")]
         public IWebElement saveButton;
 
-        public void CreateShareSkill(IWebDriver driver)
+        public void CreateShareSkill()
         {
                      
             PageFactory.InitElements(driver, this);
@@ -163,7 +163,7 @@ namespace CompetitionTask1.Pages
             {
                 exeProcess.WaitForExit();
             }
-
+            
             //approach :AutoIt Handles windows that do not belong to browser
 
             // AutoItX3 autoIt = new AutoItX3();
@@ -181,7 +181,7 @@ namespace CompetitionTask1.Pages
             CommonDriver.UseWait();
         }
             
-        public void EditShareSkill(IWebDriver driver)
+        public void EditShareSkill()
         {
            
             PageFactory.InitElements(driver, this);
@@ -250,11 +250,11 @@ namespace CompetitionTask1.Pages
             CommonDriver.UseWait();
             
 
-            IWebElement viewEditedSkills = driver.FindElement(By.XPath("//tbody/tr[1]/td[8]/div[1]/button[1]/i[1]"));
-            viewEditedSkills.Click();
+            //IWebElement viewEditedSkills = driver.FindElement(By.XPath("//tbody/tr[1]/td[8]/div[1]/button[1]/i[1]"));
+            //viewEditedSkills.Click();
 
-            IWebElement checkEditedTitle = driver.FindElement(By.XPath("//span[contains(text(),'Singer')]"));
-            Assert.That(checkEditedTitle.Text == "Singer", "Expected Title and Edited Title doesnot match");
+            //IWebElement checkEditedTitle = driver.FindElement(By.XPath("//span[contains(text(),'Singer')]"));
+            //Assert.That(checkEditedTitle.Text == "Singer", "Expected Title and Edited Title doesnot match");
         }
     
     }

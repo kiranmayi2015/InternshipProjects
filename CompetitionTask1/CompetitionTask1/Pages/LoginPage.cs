@@ -35,7 +35,7 @@ namespace CompetitionTask1.Pages
         //[CacheLookup]
         public IWebElement loginButton { get; set; }
 
-        public void LoginSteps(IWebDriver driver)
+        public void LoginSteps()
         {
                         
             PageFactory.InitElements(driver, this);
