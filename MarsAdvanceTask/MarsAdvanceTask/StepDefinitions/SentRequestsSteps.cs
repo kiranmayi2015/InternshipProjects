@@ -8,9 +8,10 @@ namespace MarsAdvanceTask.StepDefinitions
     [Binding]
     public class SentRequestsSteps : CommonDriver
     {
-        ProfilePage profilepageObj = new ProfilePage();
-        SentRequests sentrequestsObj = new SentRequests();
 
+        SentRequests sentrequestsObj = new SentRequests();
+        ProfilePage profilepageObj = new ProfilePage();
+        
         [When(@"I click on Manage Requests tab and select SentRequests")]
         public void WhenIClickOnManageRequestsTabAndSelectSentRequests()
         {
@@ -24,14 +25,8 @@ namespace MarsAdvanceTask.StepDefinitions
             sentrequestsObj.PendingStatus();
         }
 
-        [Then(@"The status should be displayed as Pending")]
-        public void ThenTheStatusShouldBeDisplayedAsPending()
-        {
-            sentrequestsObj.PendingStatus();
-        }
-
-        [When(@"If the user click on withdraw for the request sent")]
-        public void WhenIfTheUserClickOnWithdrawForTheRequestSent()
+        [When(@"The user click on withdraw for the request sent")]
+        public void WhenTheUserClickOnWithdrawForTheRequestSent()
         {
             sentrequestsObj.WithdrawSentRequest();
         }
@@ -42,32 +37,21 @@ namespace MarsAdvanceTask.StepDefinitions
             sentrequestsObj.WithdrawStatus();
         }
 
-        [When(@"If the request send is declined by the seller")]
-        public void WhenIfTheRequestSendIsDeclinedByTheSeller()
+        [When(@"The request send is declined by the seller")]
+        public void WhenTheRequestSendIsDeclinedByTheSeller()
         {
             sentrequestsObj.DeclineStatus();
         }
 
-        [Then(@"The status should be displayed as Declined")]
-        public void ThenTheStatusShouldBeDisplayedAsDeclined()
-        {
-               sentrequestsObj.DeclineStatus();
-        }
-
-        [When(@"If the request sent is accepted by the Seller")]
-        public void WhenIfTheRequestSentIsAcceptedByTheSeller()
+       
+        [When(@"The request sent is accepted by the Seller")]
+        public void WhenTheRequestSentIsAcceptedByTheSeller()
         {
             sentrequestsObj.AcceptedStatus();
         }
 
-        [Then(@"The status should be displayed as Accepted")]
-        public void ThenTheStatusShouldBeDisplayedAsAccepted()
-        {
-            sentrequestsObj.AcceptedStatus();
-        }
-
-        [When(@"If the request is accepted by both buyer and seller")]
-        public void WhenIfTheRequestIsAcceptedByBothBuyerAndSeller()
+        [When(@"The request is accepted by both buyer and seller")]
+        public void WhenTheRequestIsAcceptedByBothBuyerAndSeller()
         {
             sentrequestsObj.CompleteButton();
         }
@@ -78,8 +62,8 @@ namespace MarsAdvanceTask.StepDefinitions
             sentrequestsObj.Completed();
         }
 
-        [When(@"If the Status is Completed")]
-        public void WhenIfTheStatusIsCompleted()
+        [When(@"The Status is Completed")]
+        public void WhenTheStatusIsCompleted()
         {
             sentrequestsObj.CompleteStatus();
         }

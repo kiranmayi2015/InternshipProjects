@@ -34,6 +34,7 @@ namespace MarsAdvanceTask.Pages
         {
             sentButton.Click();
         }
+
         public void WithdrawSentRequest()
         {
             withdrawRequest.Click();

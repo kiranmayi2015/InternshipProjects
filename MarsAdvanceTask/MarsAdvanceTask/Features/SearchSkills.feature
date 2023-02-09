@@ -4,17 +4,14 @@ User should be able to SearchSkills
 
 @mytag
 
-Scenario: Check if result has location as Online
-	Given I login to the Mars website
-	When I select select category and subcategory
-	And I refine filters by online
-	Then Only results matching with online location are displayed
+Scenario: RefineSearch Skills in Profile Page
+Given the user is on Profile tab
+When the user input search key Refine search and click on searchicon
+And the user input search user key search user and click on searchicon
+Then the refined search items should be Displayed
 
-	Scenario: Check if result has location as onsite
-    When  I click on onsite filter 
-	Then Only results matching with onsite location are displayed
-
-Scenario: Check if user is able to click on Show All Filter
-	When  I click on show all filter
-	Then The results with both onsite and online locations are displayed
-
+Scenario: Search Skills by Filter 
+Given the user is on Profile tab
+When the user inputs search key in search inputbox and click on searchicon
+And the user input search key Refine search and click on searchicon
+Then  the filtered search should be displayed

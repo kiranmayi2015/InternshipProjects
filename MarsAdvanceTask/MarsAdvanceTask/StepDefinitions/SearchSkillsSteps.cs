@@ -8,58 +8,43 @@ namespace MarsAdvanceTask.StepDefinitions
     [Binding]
     public class SearchSkillsSteps : CommonDriver
     {
-        LoginPage loginpageObj = new LoginPage();
-        ProfilePage profilepageObj = new ProfilePage();
-        SearchSkillPage searchskillpageObj = new SearchSkillPage();
+        SearchSkills searchskillsObj = new SearchSkills();
 
-        [Given(@"I login to the Mars website")]
-        public void GivenILoginToTheMarsWebsite()
+        [Given(@"the user is on Profile tab")]
+        public void GivenTheUserIsOnProfileTab()
         {
-            loginpageObj.LoginSteps();
-            profilepageObj.GoToSearchSkillsPage();
+            searchskillsObj.ProfileTab();
         }
 
-        [When(@"I select select category and subcategory")]
-        public void WhenISelectSelectCategoryAndSubcategory()
+        [When(@"the user input search key Refine search and click on searchicon")]
+        public void WhenTheUserInputSearchKeyRefineSearchAndClickOnSearchicon()
         {
-            searchskillpageObj.Category();
-            searchskillpageObj.SubCategory();
+            searchskillsObj.Searchskills();
+            searchskillsObj.RefineSearchSkills();
         }
 
-        [When(@"I refine filters by online")]
-        public void WhenIRefineFiltersByOnline()
+        [When(@"the user input search user key search user and click on searchicon")]
+        public void WhenTheUserInputSearchUserKeySearchUserAndClickOnSearchicon()
         {
-            searchskillpageObj.ClickOnlineBtn();
+            searchskillsObj.RefinesearchUser();
         }
 
-        [Then(@"Only results matching with online location are displayed")]
-        public void ThenOnlyResultsMatchingWithOnlineLocationAreDisplayed()
+        [Then(@"the refined search items should be Displayed")]
+        public void ThenTheRefinedSearchItemsShouldBeDisplayed()
         {
-            searchskillpageObj.ClickResultBtn();
+            searchskillsObj.RefineFilterSearchSkills();
         }
 
-        [When(@"I click on onsite filter")]
-        public void WhenIClickOnOnsiteFilter()
+        [When(@"the user inputs search key in search inputbox and click on searchicon")]
+        public void WhenTheUserInputsSearchKeyInSearchInputboxAndClickOnSearchicon()
         {
-            searchskillpageObj.ClickOnSiteBtn();
+            searchskillsObj.Searchskills();
         }
 
-        [Then(@"Only results matching with onsite location are displayed")]
-        public void ThenOnlyResultsMatchingWithOnsiteLocationAreDisplayed()
+        [Then(@"the filtered search should be displayed")]
+        public void ThenTheFilteredSearchShouldBeDisplayed()
         {
-            searchskillpageObj.ClickResultBtn();
-        }
-
-        [When(@"I click on show all filter")]
-        public void WhenIClickOnShowAllFilter()
-        {
-            searchskillpageObj.ClickShowAllBtn();
-        }
-
-        [Then(@"The results with both onsite and online locations are displayed")]
-        public void ThenTheResultsWithBothOnsiteAndOnlineLocationsAreDisplayed()
-        {
-            searchskillpageObj.ClickResultBtn();
+            searchskillsObj.RefineSearchVisible();
         }
     }
 }

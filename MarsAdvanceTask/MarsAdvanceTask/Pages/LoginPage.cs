@@ -26,7 +26,7 @@ namespace MarsAdvanceTask.Pages
             passwordTextbox.SendKeys(LoginCredentials.String2);
             loginButton.Click();
             Wait.WaitToBeClickable(driver, "XPath", "//a[contains(text(),'Share Skill')]", 10);
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
 
         }
     }

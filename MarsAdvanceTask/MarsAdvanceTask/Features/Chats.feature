@@ -1,6 +1,7 @@
 ﻿Feature: Chats
 
-When a user chats with seller, the chats are recorded and user can view his chat history.
+
+User chats with seller, the chats are recorded and user can view his chat history.
 
 Scenario: View chat history 
 Given The User login to mars and navigate to profile page
