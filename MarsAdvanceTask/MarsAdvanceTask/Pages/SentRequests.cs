@@ -71,7 +71,9 @@ namespace MarsAdvanceTask.Pages
         }
         public void Completed()
         {
+            UseWait();
             markasCompleteButton.Click();
+
         }
         public void CompleteStatus()
         {
@@ -88,6 +90,7 @@ namespace MarsAdvanceTask.Pages
             sellerCommunicationRating.Click();
             ServiceAsDesccribed.Click();
             wouldRecommend.Click();
+            UseWait();
             ExcelReader.ReadDataTable(stream, "SentRequest");
             reviewText.SendKeys(ExcelReader.ReadData(1, "Review"));
             reviewSaveButton.Click();

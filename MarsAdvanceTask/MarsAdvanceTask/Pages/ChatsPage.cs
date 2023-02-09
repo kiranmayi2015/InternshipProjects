@@ -32,6 +32,7 @@ namespace MarsAdvanceTask.Pages
                 ExcelReader.ReadDataTable(stream, "Chats");
                 Thread.Sleep(2000);
                 chatSearch.Click();
+                 UseWait();
                 chatSearch.SendKeys(ExcelReader.ReadData(1, "ChatSearch"));
             }
             public void ChatHistory()
@@ -54,6 +55,7 @@ namespace MarsAdvanceTask.Pages
             public void ChatSendbutton()
             {
                 sendButton.Click();
+                Thread.Sleep(2000);
 
             }
         }

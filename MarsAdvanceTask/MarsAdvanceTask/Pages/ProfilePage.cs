@@ -33,6 +33,7 @@ namespace MarsAdvanceTask.Pages
         {
             Thread.Sleep(3000);
             sentRequestOption.Click();
+            UseWait();
         }
         public void GoToChatsPage()
         {

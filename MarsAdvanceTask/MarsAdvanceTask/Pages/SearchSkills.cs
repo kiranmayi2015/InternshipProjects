@@ -107,7 +107,7 @@ namespace MarsAdvanceTask.Pages
         public void RefineSearchVisible()
         {
             //Validate RefineSearchSkills
-
+            UseWait();
             ExcelReader.ReadDataTable(stream, "SearchSkills");
             Thread.Sleep(4000);
             String ActualUser = driver.FindElement(By.LinkText("Kiranmayi")).Text;
@@ -152,6 +152,7 @@ namespace MarsAdvanceTask.Pages
             // Populate Profile page test data collection
             ExcelReader.ReadDataTable(stream, "SearchSkills");
             // Search skills using filter
+            UseWait();
             string value1 = ExcelReader.ReadData(1, "FilterButtons");
             string value2 = ExcelReader.ReadData(2, "FilterButtons");
             string value3 = ExcelReader.ReadData(3, "FilterButtons");
